@@ -1,0 +1,686 @@
+\section{Cxi\+Cega.\+Cxi Class Reference}
+\label{class_cxi_cega_1_1_cxi}\index{Cxi\+Cega.\+Cxi@{Cxi\+Cega.\+Cxi}}
+
+
+Clase principal que permite la conexión al servicio en la nube, esta clase permite realizar operaciones criptográficas ~\newline
+ ya sean firmas digitales o encripción de información, también permite la verificación de una firma así como la manipulación de las llaves criptográficas.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Cxi} (string device, int connect\+\_\+timeout=D\+E\+F\+\_\+\+C\+O\+N\+N\+E\+C\+T\+\_\+\+T\+I\+M\+E\+O\+UT, int read\+\_\+timeout=D\+E\+F\+\_\+\+R\+E\+A\+D\+\_\+\+T\+I\+M\+E\+O\+UT)
+\begin{DoxyCompactList}\small\item\em Constructor de inicialización para la conexión al servicio de H\+SM. Crea una nueva conexión. \end{DoxyCompactList}\item 
+void \textbf{ Close} ()
+\begin{DoxyCompactList}\small\item\em Termina las sesiones activas con el Crypto\+Server (si hay alguna) y cierra la conexión. \end{DoxyCompactList}\item 
+void \textbf{ Logon} (string user, string password)
+\begin{DoxyCompactList}\small\item\em Inicio de sesión hacia el servicio de H\+SM con las credenciales criptográficas. \end{DoxyCompactList}\item 
+void \textbf{ Logon} (string user, string key, string password)
+\begin{DoxyCompactList}\small\item\em Inicio de sesión hacia el servicio de H\+SM por medio de llaves. \end{DoxyCompactList}\item 
+void \textbf{ Logoff} ()
+\begin{DoxyCompactList}\small\item\em Termina la sesión y libera los recursos de autenticación. \end{DoxyCompactList}\item 
+byte [$\,$] \textbf{ create\+Hash} (int algo, string text)
+\begin{DoxyCompactList}\small\item\em Genera el resumen de una entrada de datos a partir de un algoritmo requerido. \end{DoxyCompactList}\item 
+byte [$\,$] \textbf{ find\+Key} (int flags, \textbf{ Key\+Properties} key\+Template)
+\begin{DoxyCompactList}\small\item\em Busca una llave dentro del servicio H\+SM con la información de la llave (nombre y grupo). \end{DoxyCompactList}\item 
+byte [$\,$] \textbf{ sign} (int flags, byte[$\,$] key\+Handle, \textbf{ Mech\+Param} mech\+Param, byte[$\,$] data, byte[$\,$] iv=null)
+\begin{DoxyCompactList}\small\item\em Genera una firma digital a través de una llave criptográfica \end{DoxyCompactList}\item 
+bool \textbf{ verify} (int flags, byte[$\,$] key\+Handle, \textbf{ Mech\+Param} mech\+Param, byte[$\,$] data, byte[$\,$] \textbf{ sign}, byte[$\,$] iv=null)
+\begin{DoxyCompactList}\small\item\em Verifica una firma digital \end{DoxyCompactList}\item 
+byte [$\,$] \textbf{ crypt} (byte[$\,$] key\+Handle, \textbf{ Mech\+Param} mech\+Param, byte[$\,$] data, byte[$\,$] iv\+\_\+in=null, byte[$\,$] iv\+\_\+out=null)
+\begin{DoxyCompactList}\small\item\em Encripta o desencripta una cadena de texto \end{DoxyCompactList}\item 
+byte [$\,$][$\,$] \textbf{ bulk\+Crypt} (byte[$\,$] key\+Handle, \textbf{ Mech\+Param} mech\+Param, byte[$\,$][$\,$] data)
+\begin{DoxyCompactList}\small\item\em Genera la encripción o desencripción de información en una sola operación \end{DoxyCompactList}\item 
+byte [$\,$][$\,$] \textbf{ bulk\+Sign} (byte[$\,$] key\+Handle, \textbf{ Mech\+Param} mech\+Param, byte[$\,$][$\,$] data)
+\begin{DoxyCompactList}\small\item\em Genera firma digital de forma masiva \end{DoxyCompactList}\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_aebca739048202c47790178d2e4d34995}} 
+byte [$\,$] {\bfseries backup\+Key} (byte[$\,$] key\+Handle)
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0ce0e874d459d0fd38831c5fcd77bfed}} 
+byte [$\,$] {\bfseries restore\+Key} (int flags, byte[$\,$] key\+Handle)
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a19959bad6ba5ecdb5db41fae7800b3cf}} 
+byte [$\,$] {\bfseries restore\+Key} (int flags, byte[$\,$] key\+Handle, \textbf{ Key\+Properties} kp)
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ad9582d58ed44b0ee3aac0217eb71d080}} 
+\textbf{ Key\+Properties} {\bfseries Get\+Key\+Properties} (byte[$\,$] key\+Handle)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_affe552fc6114c22f78c44d00b795bb73}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+G\+R\+O\+UP} = 1
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a94f6d41bb86aa856781ff616cfb7b5cf}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+N\+A\+ME} = 2
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0f80ff6c6dbd1e7964b340fc41818c54}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+A\+L\+GO} = 3
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a48ed0329b24dc70be122efeaf9c3fd7a}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+I\+ZE} = 4
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a2695fe0883b4501803f09367f7083f6b}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+E\+X\+P\+O\+RT} = 5
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a1ae6139d5d0aa8b31231825328959469}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+U\+S\+A\+GE} = 6
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a66cb7860d1ac0bfdb3a5ee759fcfe50d}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+M\+E\+C\+HS} = 7
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a56402dfbd994ee058dd0e19b1b45f44b}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+S\+P\+EC} = 8
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0ca236081407eb1c23998659244abf79}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+L\+A\+B\+EL} = 9
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ab621014629cc8a0d465eeaeaa615a026}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+B\+L\+EN} = 10
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a4f13334a42e0201ae79b6db324af5a8f}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+U\+N\+A\+ME} = 11
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a6f0b2cab594c775e5f7ae14b6de544ca}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+T\+Y\+PE} = 12
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a07e8700cca5f711f7b38b3877ab247fb}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+A\+T\+E\+\_\+\+G\+EN} = 13
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_adaaa5f27e515cfef2c5a59d9b09591b9}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+C\+E\+RT} = 14
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a36c5169e64b0745726eb68f9623abb77}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+A\+T\+E\+\_\+\+E\+XP} = 15
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a1479255c2349ebc015a1ea151d8b6948}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+R\+S\+A\+\_\+\+M\+OD} = 20
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a70db86d52aef1de1c098db3942a09445}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+R\+S\+A\+\_\+\+E\+XP} = 21
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a9307ff926a872bbbcd5704d70b4deba0}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+S\+A\+\_\+P} = 25
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_abafdbfe7035a8810136823b0b207c13a}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+S\+A\+\_\+Q} = 26
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0ef3c9f4efe95e033d64c4644f8c27ed}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+S\+A\+\_\+G} = 27
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a7024b1d920430149ce26a0837f7017ca}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+D\+S\+A\+\_\+\+P\+U\+B\+K\+EY} = 28
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a1b6ced16c56365de207532bbfd764a1d}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+E\+C\+\_\+\+C\+U\+R\+VE} = 30
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a03cb7d233c5367961c9cbc3a82bbfb2e}} 
+static int {\bfseries P\+R\+O\+P\+\_\+\+K\+E\+Y\+\_\+\+E\+C\+\_\+\+P\+U\+B\+K\+EY} = 31
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ae284f299b4dbf95e5e400f3ccbef76db}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+H\+A\+S\+H\+\_\+\+D\+A\+TA} = 0x00000040
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a750423a3db00328c1ab366b314ebef64}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+H\+A\+S\+H\+\_\+\+P\+A\+RT} = 0x00000020
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_acc53c9e23ec627d0bf4afb4cd16d6f52}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+K\+E\+Y\+\_\+\+E\+X\+T\+E\+R\+N\+AL} = 0x00000002
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a1ac00afa78d4998d4ba1663d80c5a138}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+K\+E\+Y\+\_\+\+O\+V\+E\+R\+W\+R\+I\+TE} = 0x00000001
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a72506c7a5137d4255648c1ec6e204e93}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+K\+E\+Y\+\_\+\+V\+O\+L\+A\+T\+I\+LE} = 0x00000004
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a98656af3245af0d88eca6bcc87c77463}} 
+static int {\bfseries F\+L\+A\+G\+\_\+\+V\+E\+R\+I\+F\+Y\+\_\+\+R\+E\+C\+O\+V\+ER} = 0x00000010
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a3ca83e13890a1db0fc296ac2f77810bf}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+C\+BC} = 0x00100000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_abee44a58456aee74997cd223b17ce654}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+C\+B\+C\+\_\+\+R\+E\+T\+A\+IL} = 0x00200000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ab6f1d9ac39f1e316e68727e91d29a801}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+C\+F\+B\+\_\+\+R\+E\+T\+A\+IL} = 0x00400000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a69ce02df729ba898a97c11a94c25c44d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+C\+M\+AC} = 0x00300000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a4597e9c37cb37ebcfe9e12d901b58067}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+C\+TR} = 0x00500000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a1235536e37443f18fa77f44a4d767724}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+E\+CB} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a5de67e04f8cd712b7cc07959bb92d406}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+C\+H\+A\+I\+N\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a96677aa4969d953591ed5cf0955e9c0a}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+A\+S\+N1} = 0x00000400
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ad21441472d50d55cdd92c651c597b512}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+K\+E\+E\+P\+\_\+\+L\+E\+A\+D\+\_\+\+Z\+E\+RO} = 0x00000800
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a5700d39f79d14ee79060e67b35bf668f}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ae7c9a51aa4ba2b3735a324ccb4e12d8d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+S\+T\+R\+I\+P\+\_\+\+L\+E\+A\+D\+\_\+\+Z\+E\+RO} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ac4c1abf584e514e25441dd17eb3b60e1}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ac9c8b7876c39a9baca9bd6a8e6a01eae}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+M\+D5} = 0x00000050
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_aa7a46f38972f897bb4f7a4af70f17194}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+R\+M\+D160} = 0x00000020
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ac92cff3c9517b9e35512ae110ff3d43e}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A1} = 0x00000010
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a60aeee16d6a9b079af0ea2ef3ff28dce}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A224} = 0x00000030
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a6b3c68689a3b1585e0c94d21fb3b9fc4}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A256} = 0x00000040
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a94351358a06b02362027fae2fb974e6d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A384} = 0x00000060
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a689b2cfe2cba11b81e6518bdb460b3d8}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A512} = 0x00000070
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_af2a0ab35a38cb627668fa632cc9f8001}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+D\+F\+\_\+\+H\+A\+SH} = 0x10000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0c530ad29f276a7686090b103fd3ef8f}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+D\+F\+\_\+\+H\+M\+AC} = 0x20000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_aea3eef387dca90c5f27d90e29c1446d5}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+A\+N\+S\+I\+\_\+\+P\+R\+I\+ME} = 0x00000004
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_afa177dcfb3b885587f4b7b13fa029e50}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+C\+O\+MP} = 0x00000002
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_af66f5b1fa575512e21fafd56cfd9ba70}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+H\+Y\+B\+R\+ID} = 0x00000006
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a8085edee276a1a6cea3aecdaf544d446}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a2fc5ba3e915eee3eb2a48c94771c0b1d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+P\+R\+O\+B\+\_\+\+P\+R\+I\+ME} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ab1e0cefdb3ad7874c1aafa3f4e723348}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+P\+R\+O\+V\+\_\+\+P\+R\+I\+ME} = 0x00000002
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a3669c2ac86211bfc307dbbf457b67295}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+K\+E\+Y\+G\+E\+N\+\_\+\+U\+N\+C\+O\+MP} = 0x00000004
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ab719dca4d27c47da7a2fbcc1423a52aa}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+D\+E\+C\+R\+Y\+PT} = 0x03000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a089db390eed32c49400e6de3a143135e}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+C\+R\+Y\+PT} = 0x02000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_aa5e6ea540fa93578116abf24863478c9}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+H\+A\+SH} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a61316e59923eef2dc875290e04da62d5}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+H\+M\+AC} = 0x01000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a0d609396edd179164f0e5995ca00dd5d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a7212db50424f6544a283e16be9c2b0d4}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+I\+S\+O7816} = 0x00003000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a97a2f11a836ae09114d454356ca52f4b}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a412af001ffe27b4d7a08b9787f279f02}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+N\+O\+NE} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a8997d53e7559439178839b381425681f}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+O\+A\+EP} = 0x00005000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a8e1f9a49b31c819851242c3a8c35ed4b}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+P\+K\+C\+S1} = 0x00004000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ac59163ed6bdfe56b2adf8fdc24e24d6c}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+P\+K\+C\+S5} = 0x00001000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a7027969661821428230100ea94baa6d1}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+P\+SS} = 0x00006000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a86beef714f50008edc63dd68b016813f}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+R\+A\+N\+D\+OM} = 0x00002000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a9cd5a1686b67dcfcde618a05e0eb8f2d}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+X9\+\_\+31} = 0x00007000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a929f2469cbfef3edd6fa1f1ff0a4b805}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+Z\+E\+RO} = 0x00008000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a13e4c761391af0ea1ecbc4cb7a698e32}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+R\+N\+D\+\_\+\+A\+I\+S31}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a08a94514f485f3bf09ce890d66bd4aea}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+R\+N\+D\+\_\+\+M\+A\+SK}
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_a2bf31af442c80994733a7541008e25cc}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+R\+N\+D\+\_\+\+P\+S\+E\+U\+DO} = 0x00000000
+\item 
+\mbox{\label{class_cxi_cega_1_1_cxi_ae213a3e1537ecb043c3928076f5a91de}} 
+static int {\bfseries M\+E\+C\+H\+\_\+\+R\+N\+D\+\_\+\+R\+E\+AL} = 0x00000000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clase principal que permite la conexión al servicio en la nube, esta clase permite realizar operaciones criptográficas ~\newline
+ ya sean firmas digitales o encripción de información, también permite la verificación de una firma así como la manipulación de las llaves criptográficas. 
+
+{\ttfamily  public string Ejemplo(string datos, string nombre, string grupo) ~\newline
+  \{ ~\newline
+  \doxyref{Cxi\+Cega.\+Cxi}{p.}{class_cxi_cega_1_1_cxi} cxi = new \doxyref{Cxi\+Cega.\+Cxi}{p.}{class_cxi_cega_1_1_cxi}(\char`\"{}192.\+168.\+1.\+1\char`\"{}, 10000, 60000); ~\newline
+  cxi.\+Logon(\char`\"{}cxi\char`\"{},\char`\"{}123456\char`\"{}); ~\newline
+  ~\newline
+  byte[] data = System.\+Text.\+Encoding.\+U\+T\+F8.\+Get\+Bytes(datos); ~\newline
+  int Hash\+Algo = Cxi\+Cega.\+Cxi.\+M\+E\+C\+H\+\_\+\+H\+A\+S\+H\+\_\+\+A\+L\+G\+O\+\_\+\+S\+H\+A1; ~\newline
+  ~\newline
+  var hash\+Digest = cxi.\+create\+Hash(\+Hash\+Algo, datos); ~\newline
+  ~\newline
+  \doxyref{Cxi\+Cega.\+Mech\+Param}{p.}{class_cxi_cega_1_1_mech_param} m = new \doxyref{Cxi\+Cega.\+Mech\+Param}{p.}{class_cxi_cega_1_1_mech_param}(Hash\+Algo $\vert$ Cxi\+Cega.\+Cxi.\+M\+E\+C\+H\+\_\+\+P\+A\+D\+\_\+\+P\+K\+C\+S1); ~\newline
+  var key\+Template = new \doxyref{Cxi\+Cega.\+Key\+Properties(nombre, grupo)}{p.}{class_cxi_cega_1_1_key_properties}; ~\newline
+  var key = cxi.\+find\+Key(0, key\+Template); ~\newline
+  byte[] data\+Signed = cxi.\+sign(0, key, m, hash\+Digest); ~\newline
+  ~\newline
+  cxi.\+Close(); ~\newline
+  return Convert.\+To\+Base64\+String(data\+Signed); ~\newline
+  \} ~\newline
+} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_cxi_cega_1_1_cxi_ad943b5fad76af7ce731984fb218289f2}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!Cxi@{Cxi}}
+\index{Cxi@{Cxi}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{Cxi()}
+{\footnotesize\ttfamily Cxi\+Cega.\+Cxi.\+Cxi (\begin{DoxyParamCaption}\item[{string}]{device,  }\item[{int}]{connect\+\_\+timeout = {\ttfamily DEF\+\_\+CONNECT\+\_\+TIMEOUT},  }\item[{int}]{read\+\_\+timeout = {\ttfamily DEF\+\_\+READ\+\_\+TIMEOUT} }\end{DoxyParamCaption})}
+
+
+
+Constructor de inicialización para la conexión al servicio de H\+SM. Crea una nueva conexión. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Ip del servicio\\
+\hline
+{\em connect\+\_\+timeout} & Tiempo de espera en milisegundos para establecer la conexión al H\+SM\\
+\hline
+{\em read\+\_\+timeout} & Tiempo de espera para ejecutar un comando\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_cxi_cega_1_1_cxi_a66c44ebaefaeba0bb66ffaf5f5184fce}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!bulk\+Crypt@{bulk\+Crypt}}
+\index{bulk\+Crypt@{bulk\+Crypt}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{bulk\+Crypt()}
+{\footnotesize\ttfamily byte [$\,$][$\,$] Cxi\+Cega.\+Cxi.\+bulk\+Crypt (\begin{DoxyParamCaption}\item[{byte [$\,$]}]{key\+Handle,  }\item[{\textbf{ Mech\+Param}}]{mech\+Param,  }\item[{byte}]{data[$\,$][$\,$] }\end{DoxyParamCaption})}
+
+
+
+Genera la encripción o desencripción de información en una sola operación 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Handle} & Llave en bytes \begin{DoxySeeAlso}{See also}
+\doxyref{Cxi.\+find\+Key(int, Key\+Properties)}{p.}{class_cxi_cega_1_1_cxi_acb318cf067c4fde57077566148f26b06}
+
+
+\end{DoxySeeAlso}
+\\
+\hline
+{\em mech\+Param} & Combinación X\+OR para los parámetros del algoritmo\\
+\hline
+{\em data} & Información a cifrar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} byte[][] EncriptarBulk(List<string> listaTextoAEncriptar, \textcolor{keywordtype}{string} nombreLlave, \textcolor{keywordtype}{string} grupo)
+\{
+    \textcolor{keywordtype}{string} device = \textcolor{stringliteral}{"192.168.1.1"};
+    var cxi = \textcolor{keyword}{new} CxiCega.Cxi(device);
+    cxi.Logon(\textcolor{stringliteral}{"user\_cxi"}, \textcolor{stringliteral}{"123456"});
+    CxiCega.KeyProperties kp = \textcolor{keyword}{new} CxiCega.KeyProperties(nombreLlave, grupo);
+    \textcolor{keywordtype}{int} flag = 0;
+    byte[] llave = cxi.findKey(flag, kp);
+    List<byte[]> data = \textcolor{keyword}{new} List<byte[]>();
+    \textcolor{keywordflow}{foreach}(var t \textcolor{keywordflow}{in} listaTextoAEncriptar)
+    \{
+    data.Add(Encoding.UTF8.GetBytes(t));
+    \}
+    var mech = \textcolor{keyword}{new} CxiCega.MechParam(Cxi.MECH\_MODE\_ENCRYPT);
+    byte[][] bulk = null;
+    bulk = cxi.bulkCrypt(llave, mech, data.ToArray());
+
+    \textcolor{keywordflow}{return} bulk;
+\}
+\end{DoxyCode}
+ \mbox{\label{class_cxi_cega_1_1_cxi_a65262a23240768272b7660b0197ddbba}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!bulk\+Sign@{bulk\+Sign}}
+\index{bulk\+Sign@{bulk\+Sign}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{bulk\+Sign()}
+{\footnotesize\ttfamily byte [$\,$][$\,$] Cxi\+Cega.\+Cxi.\+bulk\+Sign (\begin{DoxyParamCaption}\item[{byte [$\,$]}]{key\+Handle,  }\item[{\textbf{ Mech\+Param}}]{mech\+Param,  }\item[{byte}]{data[$\,$][$\,$] }\end{DoxyParamCaption})}
+
+
+
+Genera firma digital de forma masiva 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Handle} & Llave en bytes\\
+\hline
+{\em mech\+Param} & Combinación X\+OR para los parámetros del algoritmo\\
+\hline
+{\em data} & Arreglo de bytes con la información a firmar\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} byte[][] SellarBulk(List<string> listaTextoAEncriptar, \textcolor{keywordtype}{string} nombreLlave, \textcolor{keywordtype}{string} grupo)
+ \{
+        \textcolor{keywordtype}{string} device = \textcolor{stringliteral}{"192.168.1.1"};
+        Cxi cxi = \textcolor{keyword}{new} Cxi(device);
+        cxi.Logon(\textcolor{stringliteral}{"user\_cxi"}, \textcolor{stringliteral}{"123456"});
+        var kp = \textcolor{keyword}{new} CxiCega.KeyProperties(nombreLlave, grupo);
+        \textcolor{keywordtype}{int} flag = 0;
+         byte[] llave = cxi.findKey(flag, kp);
+        byte[][] bulk = null;
+
+         List<byte[]> hashes = \textcolor{keyword}{new} List<byte[]>();
+        \textcolor{keywordflow}{foreach} (var t \textcolor{keywordflow}{in} listaTextoAEncriptar)
+        \{
+            byte[] hash = cxi.createHash(Cxi.MECH\_HASH\_ALGO\_SHA256, t);
+        hashes.Add(hash);
+        \}
+
+        var mech = \textcolor{keyword}{new} CxiCega.MechParam(Cxi.MECH\_HASH\_ALGO\_SHA256 | Cxi.MECH\_PAD\_PKCS1);
+        bulk = cxi.bulkSign(llave, mech, hashes.ToArray());
+        cxi.Close();
+        \textcolor{keywordflow}{return} bulk;
+
+
+\}
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+Un arreglo de bytes con las firmas digitales
+\end{DoxyReturn}
+\mbox{\label{class_cxi_cega_1_1_cxi_a094937f198ece036ad67c96231656f45}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!Close@{Close}}
+\index{Close@{Close}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{Close()}
+{\footnotesize\ttfamily void Cxi\+Cega.\+Cxi.\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Termina las sesiones activas con el Crypto\+Server (si hay alguna) y cierra la conexión. 
+
+\mbox{\label{class_cxi_cega_1_1_cxi_a168ea2099fcaac96a357926ff379b3bc}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!create\+Hash@{create\+Hash}}
+\index{create\+Hash@{create\+Hash}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{create\+Hash()}
+{\footnotesize\ttfamily byte [$\,$] Cxi\+Cega.\+Cxi.\+create\+Hash (\begin{DoxyParamCaption}\item[{int}]{algo,  }\item[{string}]{text }\end{DoxyParamCaption})}
+
+
+
+Genera el resumen de una entrada de datos a partir de un algoritmo requerido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em algo} & Algoritmo para la generación del resumen\\
+\hline
+{\em text} & Cadena de texto a la que se le sacará el resumen\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Arreglo de bytes con el resumen 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} byte[] CrearHash(\textcolor{keywordtype}{string} datos)
+\{
+    CxiCega.Cxi cxi = \textcolor{keyword}{new} CxiCega.Cxi(\textcolor{stringliteral}{"192.168.1.1"}, 10000, 60000); 
+    cxi.Logon(\textcolor{stringliteral}{"cxi"},\textcolor{stringliteral}{"123456"});                                                             
+<br>    \textcolor{keywordtype}{int} HashAlgo = CxiCega.Cxi.MECH\_HASH\_ALGO\_SHA1;
+    var hashDigest = cxi.createHash(HashAlgo, datos);
+    cxi.Close();
+    \textcolor{keywordflow}{return} hashDigest;
+\}
+\end{DoxyCode}
+ \mbox{\label{class_cxi_cega_1_1_cxi_af4df7431da3f52fd0ba935991382e121}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!crypt@{crypt}}
+\index{crypt@{crypt}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{crypt()}
+{\footnotesize\ttfamily byte [$\,$] Cxi\+Cega.\+Cxi.\+crypt (\begin{DoxyParamCaption}\item[{byte [$\,$]}]{key\+Handle,  }\item[{\textbf{ Mech\+Param}}]{mech\+Param,  }\item[{byte [$\,$]}]{data,  }\item[{byte [$\,$]}]{iv\+\_\+in = {\ttfamily null},  }\item[{byte [$\,$]}]{iv\+\_\+out = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Encripta o desencripta una cadena de texto 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Handle} & Llave en bytes\\
+\hline
+{\em mech\+Param} & Combinación X\+OR para los parámetros del algoritmo\\
+\hline
+{\em data} & Información a cifrar\\
+\hline
+{\em iv\+\_\+in} & Vector inicial (opcional)\\
+\hline
+{\em iv\+\_\+out} & Vector de salida (opcional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Arreglo de bytes con el resultado de la encripción 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} \textcolor{keywordtype}{string} EncriptarCadena(byte[] datos, \textcolor{keywordtype}{string} nombre, \textcolor{keywordtype}{string} grupo)
+\{
+    CxiCega.Cxi cxi = \textcolor{keyword}{new} CxiCega.Cxi(\textcolor{stringliteral}{"192.168.1.1"}, 10000, 60000);  
+<br>    cxi.Logon(\textcolor{stringliteral}{"cxi"},\textcolor{stringliteral}{"123456"});                                                            
+<br>    var cadenaEncriptada = \textcolor{stringliteral}{""};
+    var keyTemplate = \textcolor{keyword}{new} CxiCega.KeyProperties(nombre, grupo, -1);
+
+    var llaveAbierta = cxi.findKey(0, keyTemplate);
+
+    var mechParam = \textcolor{keyword}{new} CxiCega.MechParam(CxiCega.Cxi.MECH\_MODE\_ENCRYPT | 
+      CxiCega.Cxi.MECH\_CHAIN\_CBC);
+
+    byte[] iv\_in = null;
+    var crypto = cxi.crypt(llaveAbierta, mechParam, datos, iv\_in);
+    cadenaEncriptada = Convert.ToBase64String(crypto);
+    cxi.Close();
+    \textcolor{keywordflow}{return} cadenaEncriptada;
+\}
+\end{DoxyCode}
+ \mbox{\label{class_cxi_cega_1_1_cxi_acb318cf067c4fde57077566148f26b06}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!find\+Key@{find\+Key}}
+\index{find\+Key@{find\+Key}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{find\+Key()}
+{\footnotesize\ttfamily byte [$\,$] Cxi\+Cega.\+Cxi.\+find\+Key (\begin{DoxyParamCaption}\item[{int}]{flags,  }\item[{\textbf{ Key\+Properties}}]{key\+Template }\end{DoxyParamCaption})}
+
+
+
+Busca una llave dentro del servicio H\+SM con la información de la llave (nombre y grupo). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & Bandera de comando (opcional)\\
+\hline
+{\em key\+Template} & Plantilla con la información de la llave que se está buscando\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Arreglo de bytes con la llave
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} byte[] ExisteLlave(\textcolor{keywordtype}{string} nombreLlave, \textcolor{keywordtype}{string} grupo)
+\{
+    CxiCega.Cxi cxi = \textcolor{keyword}{new} CxiCega.Cxi(\textcolor{stringliteral}{"192.168.1.1"}, 10000, 60000); 
+    cxi.Logon(\textcolor{stringliteral}{"cxi"},\textcolor{stringliteral}{"123456"});                                                           
+<br>    var keyTemplate = \textcolor{keyword}{new} CxiCega.KeyProperties(nombreLlave, grupo, -1);
+    var key = cxi.findKey(0, keyTemplate);
+    cxi.Close();
+
+    \textcolor{keywordflow}{return} key;
+
+\}
+\end{DoxyCode}
+ \mbox{\label{class_cxi_cega_1_1_cxi_a661b7c1364ea0ea99b2595174b912bb5}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!Logoff@{Logoff}}
+\index{Logoff@{Logoff}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{Logoff()}
+{\footnotesize\ttfamily void Cxi\+Cega.\+Cxi.\+Logoff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Termina la sesión y libera los recursos de autenticación. 
+
+\mbox{\label{class_cxi_cega_1_1_cxi_a54ee9f6d62c27736440c2041016e99db}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!Logon@{Logon}}
+\index{Logon@{Logon}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{Logon()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Cxi\+Cega.\+Cxi.\+Logon (\begin{DoxyParamCaption}\item[{string}]{user,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Inicio de sesión hacia el servicio de H\+SM con las credenciales criptográficas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Usuario criptográfico\\
+\hline
+{\em password} & Contraseña del usuario criptográfico\\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_cxi_cega_1_1_cxi_a48886eff1682c4398e3d257ab700ee2c}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!Logon@{Logon}}
+\index{Logon@{Logon}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{Logon()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Cxi\+Cega.\+Cxi.\+Logon (\begin{DoxyParamCaption}\item[{string}]{user,  }\item[{string}]{key,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Inicio de sesión hacia el servicio de H\+SM por medio de llaves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Usuario criptográfico\\
+\hline
+{\em key} & Ruta del archivo de la llave para la autenticación\\
+\hline
+{\em password} & Contraseña de la llave utilizada para la autenticación\\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_cxi_cega_1_1_cxi_ae67c80df4284a40c2195d118c394337d}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!sign@{sign}}
+\index{sign@{sign}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{sign()}
+{\footnotesize\ttfamily byte [$\,$] Cxi\+Cega.\+Cxi.\+sign (\begin{DoxyParamCaption}\item[{int}]{flags,  }\item[{byte [$\,$]}]{key\+Handle,  }\item[{\textbf{ Mech\+Param}}]{mech\+Param,  }\item[{byte [$\,$]}]{data,  }\item[{byte [$\,$]}]{iv = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Genera una firma digital a través de una llave criptográfica 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & Banderas de comando (opcional)\\
+\hline
+{\em key\+Handle} & Llave criptográfica, se obtiene por medio del método find\+Key\\
+\hline
+{\em mech\+Param} & Combinación X\+OR para los parámetros del algoritmo\\
+\hline
+{\em data} & Texto en bytes que será utilizado para la firma digital\\
+\hline
+{\em iv} & Vector de inicialización (opcional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Firma digita en bytes
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} \textcolor{keywordtype}{string} SellarCadena(\textcolor{keywordtype}{string} datos, \textcolor{keywordtype}{string} codigoLlave, \textcolor{keywordtype}{string} grupo)
+       \{
+           CxiCega.Cxi cxi = \textcolor{keyword}{new} CxiCega.Cxi(\textcolor{stringliteral}{"192.168.1.1"}, 10000, 60000);         
+<br>           cxi.Logon(\textcolor{stringliteral}{"cxi"},\textcolor{stringliteral}{"123456"});                                                            
+<br>           byte[] data = System.Text.Encoding.UTF8.GetBytes(datos);
+           \textcolor{keywordtype}{int} HashAlgo = CxiCega.Cxi.MECH\_HASH\_ALGO\_SHA1;
+
+           var hashDigest = cxi.createHash(HashAlgo, datos);
+
+           CxiCega.MechParam m = \textcolor{keyword}{new} CxiCega.MechParam(HashAlgo | CxiCega.Cxi.MECH\_PAD\_PKCS1);
+           var keyTemplate = \textcolor{keyword}{new} CxiCega.KeyProperties(codigoLlave, grupo, -1);
+           var key = cxi.findKey(0, keyTemplate);
+           byte[] dataSigned = cxi.sign(0, key  , m, hashDigest);
+           cxi.Close();
+           \textcolor{keywordflow}{return} Convert.ToBase64String(dataSigned);
+       \}
+\end{DoxyCode}
+ \mbox{\label{class_cxi_cega_1_1_cxi_aa6c21e20652bb5fed853d5231eabca7a}} 
+\index{Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}!verify@{verify}}
+\index{verify@{verify}!Cxi\+Cega\+::\+Cxi@{Cxi\+Cega\+::\+Cxi}}
+\subsubsection{verify()}
+{\footnotesize\ttfamily bool Cxi\+Cega.\+Cxi.\+verify (\begin{DoxyParamCaption}\item[{int}]{flags,  }\item[{byte [$\,$]}]{key\+Handle,  }\item[{\textbf{ Mech\+Param}}]{mech\+Param,  }\item[{byte [$\,$]}]{data,  }\item[{byte [$\,$]}]{sign,  }\item[{byte [$\,$]}]{iv = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Verifica una firma digital 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & Banderas de comando (opcional)\\
+\hline
+{\em key\+Handle} & Llave en bytes\\
+\hline
+{\em mech\+Param} & Combinación X\+OR para los parámetros del algoritmo\\
+\hline
+{\em data} & Texto original el cual se firmó\\
+\hline
+{\em sign} & Resultado de la firma para verificar\\
+\hline
+{\em iv} & Vector inicial (opcional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ En caso de que la firma sea correcta false -\/ En caso de que la firma no es correcta 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keyword}{public} \textcolor{keywordtype}{bool} VerificarSello(byte[] firmaDigital, \textcolor{keywordtype}{string} textoOriginal, \textcolor{keywordtype}{string} nombreLlave, \textcolor{keywordtype}{string} grupoLlave
+      )
+\{
+   \textcolor{keywordtype}{int} HashAlgo = CxiCega.Cxi.MECH\_HASH\_ALGO\_SHA1;
+   byte[] hash = cxi.createHash(Cxi.MECH\_HASH\_ALGO\_SHA1, textoOriginal);
+   CxiCega.MechParam m = \textcolor{keyword}{new} CxiCega.MechParam(HashAlgo | CxiCega.Cxi.MECH\_PAD\_PKCS1);
+   var keyTemplate = \textcolor{keyword}{new} CxiCega.KeyProperties(nombreLlave, grupoLlave, -1);
+   var key = cxi.findKey(0, keyTemplate);
+   \textcolor{keywordflow}{return} cxi.verify(0, key, m, hash, firmaDigital);
+
+\}
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C\+E\+G\+A Security 1.\+0/\+Source/\+Repos/\+H\+S\+M/\+Cxi Cega/\+Cxi\+Cega/\+Cxi\+Cega/Cxi.\+cs\end{DoxyCompactItemize}
