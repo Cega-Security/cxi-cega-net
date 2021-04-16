@@ -20,47 +20,63 @@ Para otras configuraciones del proyecto contactar a personal de Cega Security
 
 ### Conexión
 Se crea una instancia del objeto `Cxi` con la dirección IP del HSM y se inicia sesión con un usuario criptográfico
-    
-    Cxi cxi = new Cxi("192.168.1.100");
-    cxi.Logon("USUARIO", "CONTRASENA");
+
+``` csharp
+Cxi cxi = new Cxi("192.168.1.100");
+cxi.Logon("USUARIO", "CONTRASENA");
+```
 
 ### Buscar Llave
 Se crea un objeto `KeyProperties` con el nombre y el grupo de la llave a utilizar
 
-    KeyProperties kp = new KeyProperties("NOMBRE_LLAVE", "NOMBRE_GRUPO");
-    byte[] llave = cxi.findKey(0, kp);
+``` csharp
+KeyProperties kp = new KeyProperties("NOMBRE_LLAVE", "NOMBRE_GRUPO");
+byte[] llave = cxi.findKey(0, kp);
+```
 
 ### Encriptación y Desencriptación
 Para encriptar se crea el mecanismo con los parámetros de modo encrypt y el padding deseado. Se obtienen los bytes a encriptar y se ejecuta la función `cxi.crypt` con la llave correspondiente
 
-    MechParam mech = new MechParam(Cxi.MECH_MODE_ENCRYPT | Cxi.MECH_CHAIN_CBC | Cxi.MECH_PAD_PKCS5);
-    byte[] datos = Encoding.UTF8.GetBytes("Cega Security");
-    byte[] crypt = cxi.crypt(llave, mech, datos);
+``` csharp
+MechParam mech = new MechParam(Cxi.MECH_MODE_ENCRYPT | Cxi.MECH_CHAIN_CBC | Cxi.MECH_PAD_PKCS5);
+byte[] datos = Encoding.UTF8.GetBytes("Cega Security");
+byte[] crypt = cxi.crypt(llave, mech, datos);
+```
 
 Para desencriptar se crea el mecanismo con los parámetros de modo decrypt y el padding deseado. Se ejecuta la función `cxi.crypt` con la llave correspondiente
 
-    MechParam mechDecrypt = new MechParam(Cxi.MECH_MODE_DECRYPT | Cxi.MECH_CHAIN_CBC | Cxi.MECH_PAD_PKCS5);
-    byte[] decrypt = cxi.crypt(llave, mechDecrypt, crypt);
+``` csharp
+MechParam mechDecrypt = new MechParam(Cxi.MECH_MODE_DECRYPT | Cxi.MECH_CHAIN_CBC | Cxi.MECH_PAD_PKCS5);
+byte[] decrypt = cxi.crypt(llave, mechDecrypt, crypt);
+```
 
 ### Firma y verificación
 Se crea el hash de los datos a firmar con la función `cxi.createHash` y el tipo de hash a utilizar
 
-    string datos = "Cega Security";
-    byte[] hash = cxi.createHash(Cxi.MECH_HASH_ALGO_SHA256, datos);
+``` csharp
+string datos = "Cega Security";
+byte[] hash = cxi.createHash(Cxi.MECH_HASH_ALGO_SHA256, datos);
+```
 
 Se crea el mecanismo con el hash y el padding correspondiente y se ejecuta la firma con la función `cxi.sign` con la llave correspondiente
 
-    MechParam mech = new MechParam(Cxi.MECH_HASH_ALGO_SHA256 | Cxi.MECH_PAD_PKCS1);
-    byte[] sign = cxi.sign(0, llave, mech, hash);
+``` csharp
+MechParam mech = new MechParam(Cxi.MECH_HASH_ALGO_SHA256 | Cxi.MECH_PAD_PKCS1);
+byte[] sign = cxi.sign(0, llave, mech, hash);
+```
 
 Posteriormente se puede hacer la verificación de la firma con la función `cxi.verify`
 
-    bool verify = cxi.verify(0, llave, mech, hash, sign);
+``` csharp
+bool verify = cxi.verify(0, llave, mech, hash, sign);
+```
 
 ### Cierre
 Es necesario cerrar la conexión al HSM para evitar problemas con el número de conexiones
 
-    cxi.Close();
+``` csharp
+cxi.Close();
+```
 
 ## Documentación 
 La documentación detallada se encuentra en la carpeta Cxi Cega Documentation. Generada con Doxygen, abriendo el index.html se podrá navegar entre las diferentes clases y métodos.
