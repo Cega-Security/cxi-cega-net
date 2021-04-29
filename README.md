@@ -79,7 +79,7 @@ cxi.Close();
 ```
 
 ## Documentación 
-La documentación detallada se encuentra en la carpeta Cxi Cega Documentation. Generada con Doxygen, abriendo el index.html se podrá navegar entre las diferentes clases y métodos.
+La documentación detallada se encuentra en la carpeta Documentation. Generada con Doxygen, abriendo el index.html se podrá navegar entre las diferentes clases y métodos.
 
 ## Errores comunes
 Si se presenta algún problema se puede poner en contacto con personal de Cega Security. Por lo pronto estos son algunos errores comunes y su solución:
