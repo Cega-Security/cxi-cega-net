@@ -6,6 +6,7 @@ Este proyecto es un ejemplo para implementar la librería de Cxi Cega proporcion
 - Proyecto de 64 bits
 - Haber instalado las herramientas de SecurityServer 4.20
 - Referencia a la librería cxi.dll
+- Microsoft Visual C++ Redistributable para Visual Studio 2015 para entornos de ejecución (Instalar el SecurityServer 4.20 los instala por default)
 
 Para otras configuraciones del proyecto contactar a personal de Cega Security
 
@@ -79,7 +80,7 @@ cxi.Close();
 ```
 
 ## Documentación 
-La documentación detallada se encuentra en la carpeta Documentation. Generada con Doxygen, abriendo el index.html se podrá navegar entre las diferentes clases y métodos.
+La documentación detallada se encuentra en la carpeta Documentation. Generada con Doxygen, se puede descargar y abrir el archivo API-Documentacion.html para navegar entre las diferentes clases y métodos.
 
 ## Errores comunes
 Si se presenta algún problema se puede poner en contacto con personal de Cega Security. Por lo pronto estos son algunos errores comunes y su solución:
